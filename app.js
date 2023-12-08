@@ -32,9 +32,8 @@ app.get('/login', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 app.post('/login', (req, res) => {
-
-  console.log('Usuario recibido:', usuario);
-  console.log('Contraseña recibida:', contraseña);
+  const usuario = req.body.usuario;
+  const contraseña = req.body.contraseña;
 
   // Consultar la base de datos para verificar las credenciales
   const sql = 'SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?';
